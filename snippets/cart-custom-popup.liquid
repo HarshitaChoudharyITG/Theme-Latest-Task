@@ -1,0 +1,83 @@
+<cart-drawer-modal class="cart-drawer-modal">
+    <div class="cart-drawer-modal-content">
+      <span class="cart-drawer-modal-toggle">
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+      <div class="cart-drawer-modalinfo">
+        {% if product %}
+          <div class="product">
+            <h1 class="product-title">{{ product.title }}</h1>
+  
+            <!-- Display product price -->
+            <span id="variant-price" data-price="{{ product.selected_or_first_available_variant.price }}">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+  
+            <!-- Product Variant Options -->
+            <div class="product-variants">
+              {%- unless product.has_only_default_variant -%}    
+              {% for option in product.options_with_values %}         
+                <fieldset class="product-form__input" name="{{ option.name | handleize }}">
+                  <legend>{{ option.name | escape }}</legend>
+                  <div class="select-wrapper">
+                    <select class="itg_select_option" name="options[{{ option.name | escape }}]" id="options-{{ option.name | escape }}">
+                     {%- for value in option.values -%}                
+                      <option value="{{ value | handleize }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                        {{ value | escape }}
+                      </option>
+                    {%- endfor -%}                               
+                    </select> 
+                    <div class="select_downarrow">
+                      <svg role="img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </fieldset> 
+              {% endfor %}  
+            {%- endunless -%}
+  
+  
+              <select class="select-option-hidden" style="display:none;">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.title | handleize }}" 
+                          data-id="{{ variant.id }}" 
+                          data-price="{{ variant.price | money }}" 
+                          data-inventory="{{ variant.inventory_quantity }}"
+                          {% unless variant.available %} soldout {% endunless %}>
+                    {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            
+            <div class="product-form-wrapper">
+              <div class="quantity-wrapper">
+                <quantity-input id="Quantity">
+                  <button class="quantity__button" name="minus" type="button">-</button>
+                  <input class="quantity__input" type="number" name="quantity" id="Quantity-{{ section.id }}" min="1" value="1" >
+                  <button class="quantity__button" name="plus" type="button">+</button>
+                </quantity-input>
+              </div>
+  
+              <div class="add-to-cart">
+                  <input type="hidden" id="selected-product-id" value="{{ product.id }}">
+                  <input type="hidden" name="id" id="selected-variant-id" value="{{ product.selected_or_first_available_variant.id }}" />
+                  {% if product.available %}
+                  <button type="submit" class="product-form_addbtn">Add to Cart</button>
+                  {% else %}
+                  <button type="submit" class="product-form__submit" disabled>Sold Out</button> 
+                  {% endif %}
+              </div>
+            </div>
+  
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  
+    <script id="ProductJson-{{ product.id }}" type="application/json">
+      {{ product.variants | json }}
+    </script>
+  </cart-drawer-modal>
+  
