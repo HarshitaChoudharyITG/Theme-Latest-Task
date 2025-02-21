@@ -305,7 +305,7 @@
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
-      {%  render 'cart-custom-popup' %}
+      {%-  render 'cart-custom-popup' -%}
     {%- endif -%}
 
     {% sections 'header-group' %}
@@ -372,6 +372,7 @@
 
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'custom-cart-popup.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
 </html>
