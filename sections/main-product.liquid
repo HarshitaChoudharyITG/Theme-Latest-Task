@@ -89,6 +89,18 @@
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
+              {%when 'additional-products' %}
+                <div class="additional-products">
+                  <ul>
+                    {%assign additional-products = product.metafeild.custom.additional_products.value %}
+                    {% for product in additional-products %}
+                    <li>
+                    <input type="checkbox" id="{{ forloop.index }}" name="{{ product.title | handleize }}" value="{{ product.title | handleize }}">
+                    <a href="{{ product.url }}">{{ product.title }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
               {%- when 'text' -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -768,6 +780,11 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "additonal-products",
+      "name": "Additional Products",
       "limit": 1
     },
     {
