@@ -39,6 +39,8 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    <script src="{{ 'product-grid.js' | asset_url }}" defer="defer"></script>
+
     {{ content_for_header }}
 
     {%- liquid
@@ -296,6 +298,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {{ 'product-grid.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'product-grid.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -374,5 +378,6 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'custom-cart-popup.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {%  render 'product-grid-popup' %}
   </body>
 </html>

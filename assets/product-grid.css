@@ -1,0 +1,321 @@
+.product-grid-main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .product-grid-list {
+    width: calc(25% - 15px);
+    position: relative;
+  }
+  .product-grid img {
+    display: block;
+    width: 100%;
+  }
+  span.product-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: #fff;
+    padding: 8px;
+    cursor: pointer;
+}
+  span.product-icon svg.feather.feather-eye {
+      display: block;
+      z-index: 5;
+  }
+  .product-grid::after {
+      position: absolute;
+      top: 0;
+      left;
+      left;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0 0 0 / 15%);
+      content: '';
+  }
+.product-grid-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.product-grid-modal.is-visible {
+  display: flex;
+}
+.product-grid-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.product-grid-modal-toggle svg.icon.icon-close {
+    width: 20px;
+    height: 20px;
+}
+span.product-grid-modal-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+}
+.product-grid-modalinfo h1.product-title {
+    font-size: 30px;
+}
+.product-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.quantity-wrapper, .add-to-cart {
+    width: auto;
+}
+.product-variants {
+    margin: 15px 0px;
+}
+.product-variants fieldset {
+    flex: 0 0 100%;
+    padding: 0;
+    margin: 0 0 1.2rem;
+    max-width: 44rem;
+    min-width: fit-content;
+    border: none;
+}
+.add-to-cart button::after, .add-to-cart button::before {
+    display: none;
+}
+.add-to-cart button {
+    border: 1px solid #1d1d1d;
+    position: relative;
+    width: 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.5rem;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    padding: 0px;
+}
+.product-form__submit {
+    margin-bottom: 0rem;
+}
+product-grid-modal.product-grid-modal.is-active {
+    display: flex;
+}
+quantity-input#Quantity {
+    height: 100%;
+    border: 1px solid;
+    box-sizing: border-box;
+    color: rgba(var(--color-foreground));
+    position: relative;
+    width: 14rem;
+    display: flex;
+    border-radius: var(--inputs-radius);
+    min-height: 4.5rem;
+}
+quantity-input#Quantity button.quantity__button {
+    width: 4.5rem;
+}
+*:focus-visible {
+    outline: none;
+    outline-offset: inherit;
+    box-shadow: none;
+}
+select::-ms-expand {
+    display: none;
+}
+select.itg_select_option::after {
+    content: '\f078';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #0ebeff;
+    right: 11px;
+    top: 6px;
+    height: 34px;
+    padding: 15px 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+}
+select {
+    appearance: none;
+    padding: 7px 39px 7px 7px;
+    position: relative;
+    cursor: pointer;
+}
+.select_downarrow svg {
+    width: 10px;
+    height: 10px;
+}
+.select-wrapper {
+    display: flex;
+    position: relative;
+    width: max-content;
+}
+.select_downarrow {
+    position: absolute;
+    right: 10px;
+}
+button.edit-btn {
+    display: inline-block;
+    padding: 0px;
+}
+
+.product-form_addbtn[disabled] {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+ .modal-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-loader.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .loader-spinner svg {
+    width: 50px;
+    height: 50px;
+    animation: rotate 1s linear infinite;
+  }
+  
+  .loader-spinner circle {
+    stroke: #000;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes rotate {
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+
+/* Color button styles */
+  .color-button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  } 
+.color-button.selected {
+    border-color: #000000;
+    background-color: #000;
+    color: #fff;
+}
+button.color-button {
+    font-size: 18px;
+    text-transform: uppercase;
+    overflow: hidden;
+    display: flex;
+    gap: 5px;
+    padding: 15px 28px;
+    letter-spacing: 0;
+    box-sizing: content-box;
+    transition: all 0.2s ease;
+    position: relative;
+    border: 1px solid #000;
+    background: transparent;
+} 
+  .color-button:hover {
+    border-color: #b0b0b0;
+  }  
+.color-button-indicator {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 100%;
+} 
+  /* Dropdown styles */
+  .select-wrapper {
+    position: relative;
+    margin-top: 8px;
+  }
+  
+  .itg_select_option {
+    appearance: none;
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .select_downarrow {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  .select_downarrow svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+
+
+@media screen and (max-width: 992px){
+  .cart-drawer-modal {
+    width: 100%;
+    height: 100%;
+}
+  .add-to-cart button {
+    width: 100%;
+}
+  quantity-input#Quantity {
+    width: 100%;
+}
+  .quantity-wrapper, .add-to-cart {
+    width: 100%;
+}
+}
