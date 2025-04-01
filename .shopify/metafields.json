@@ -4,13 +4,23 @@
   "brand": [],
   "collection": [
     {
-      "key": "gifted",
+      "key": "collection_gift_item",
       "namespace": "custom",
-      "name": "gifted",
+      "name": "collection gift item",
       "description": "",
       "type": {
-        "name": "list.product_reference",
+        "name": "product_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "collection_faq",
+      "namespace": "custom",
+      "name": "collection faq",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
       }
     }
   ],
@@ -22,9 +32,49 @@
   "page": [],
   "product": [
     {
-      "key": "addons",
+      "key": "queries",
+      "namespace": "shopify--discovery--product_search_boost",
+      "name": "Search product boosts",
+      "description": "List of search queries for which a product gets higher rank in search results",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "related_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products",
+      "description": "List of related products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "related_products_display",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products settings",
+      "description": "Determines how related products are displayed along with algorithmic product recommendations",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "complementary_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Complementary products",
+      "description": "List of complementary products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "addon_product",
       "namespace": "custom",
-      "name": "addons",
+      "name": "addon product",
       "description": "",
       "type": {
         "name": "product_reference",
@@ -32,9 +82,9 @@
       }
     },
     {
-      "key": "extra_media",
+      "key": "product_file",
       "namespace": "custom",
-      "name": "extra-media",
+      "name": "product file",
       "description": "",
       "type": {
         "name": "list.file_reference",
@@ -42,9 +92,19 @@
       }
     },
     {
-      "key": "extra_product_info",
+      "key": "product_file1",
       "namespace": "custom",
-      "name": "extra-product-info",
+      "name": "product file1",
+      "description": "",
+      "type": {
+        "name": "list.file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "custom_rich_text",
+      "namespace": "custom",
+      "name": "custom rich text",
       "description": "",
       "type": {
         "name": "rich_text_field",
@@ -52,9 +112,59 @@
       }
     },
     {
-      "key": "testaddon",
+      "key": "_single_tier_gift",
       "namespace": "custom",
-      "name": "testaddon",
+      "name": " Single Tier Gift",
+      "description": "",
+      "type": {
+        "name": "product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bundle_products",
+      "namespace": "custom",
+      "name": "Bundle Products",
+      "description": "",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Defines the primary color or pattern, such as blue or striped",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "product_related_images",
+      "namespace": "custom",
+      "name": "Product Related Images",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "custom_badge",
+      "namespace": "custom",
+      "name": "custom Badge",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "additional_products",
+      "namespace": "custom",
+      "name": "Additional Products",
       "description": "",
       "type": {
         "name": "list.product_reference",
